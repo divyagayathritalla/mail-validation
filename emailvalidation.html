@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+    form{
+      margin-top: 20px;
+    }
+   .text{
+     height: 40px;
+     width:300px;
+     text-align: center;
+   }
+  </style>
+  </head>
+  <body>
+    <script>
+      function checkValidation()
+      {
+        var store=document.getElementById("mail").value;
+         let regex=/^\w+[a-zA-Z0-9\.-]+@([a-zA-Z0-9-])+(\.[a-z]{2,10})+$/g;
+         let result=regex.test(store)
+         if(result==true){
+           document.getElementById("button").style.visibility='visible';
+           document.getElementById("mail").style.backgroundColor="green";
+           document.getElementById("div").innerHTML='valid'
+           document.getElementById("div").style.color='green'
+         }
+         else if(store==""){
+          document.getElementById("button").style.visibility = 'hidden';
+          document.getElementById("mail").style.backgroundColor="white";
+          document.getElementById("div").innerHTML=""
+         
+         }
+         else{
+          document.getElementById("button").style.visibility = 'hidden';
+          document.getElementById("mail").style.backgroundColor="red";
+          document.getElementById("div").innerHTML='invalid'
+          document.getElementById("div").style.color='red'
+          
+         }
+      }
+    
+    </script>
+     <center>
+   <form>
+    <br/>
+    <h2>...Email Vaildation...</h2>
+    <input type="email" placeholder="enter you mail" onkeyup="checkValidation()" class="text" id="mail" />
+    <span> <div id="div"></div></span>
+    <br/> <br/><input type="submit" id="button" value="submit" style="visibility: hidden;"/><br/>
+  </form>
+</center>
+  </body>
+</html>
